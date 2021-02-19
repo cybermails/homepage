@@ -219,7 +219,11 @@ Error message and password prompt
 
 <li>$:/language/Snippets/ListByTitleTranscludeText</li>
 
+<li>$:/macros/buggyj/misc/location.js</li>
+
 <li>$:/palette</li>
+
+<li>$:/PublicSidebar/main</li>
 
 <li>$:/SiteSubtitle</li>
 
@@ -348,6 +352,8 @@ Error message and password prompt
 <li>$:/status/UserName</li>
 
 <li>$:/StoryList</li>
+
+<li>$:/tags/SideBar</li>
 
 <li>$:/temp/advancedsearch</li>
 
@@ -597,6 +603,8 @@ Error message and password prompt
 
 <li>My Notes</li>
 
+<li>PublicMenu</li>
+
 </ul>
 </p>
 
@@ -611,8 +619,8 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20201021172334128" modified="20201021172334128" title="$:/config/DefaultSidebarTab">
-<pre>Contents</pre>
+<div created="20201021172334128" creator="Kumudan Grubh" modified="20210219223557846" modifier="Kumudan Grubh" title="$:/config/DefaultSidebarTab">
+<pre>PublicMenu</pre>
 </div>
 <div created="20201027142144986" creator="Kumudan Grubh" modified="20201027142145602" modifier="Kumudan Grubh" title="$:/config/Manager/Filter">
 <pre>List</pre>
@@ -10074,7 +10082,7 @@ Error message and password prompt
 <div created="20210219204824186" creator="Kumudan Grubh" modified="20210219205314945" modifier="Kumudan Grubh" title="$:/GitHub/Branch">
 <pre>master</pre>
 </div>
-<div created="20201026031939147" creator="Kumudan Grubh" modified="20210219205515379" modifier="Kumudan Grubh" title="$:/GitHub/Filename">
+<div created="20201026031939147" creator="Kumudan Grubh" modified="20210219223820011" modifier="Kumudan Grubh" title="$:/GitHub/Filename">
 <pre>index.html</pre>
 </div>
 <div created="20201026031933803" creator="Kumudan Grubh" modified="20210219204850208" modifier="Kumudan Grubh" title="$:/GitHub/Path">
@@ -10089,7 +10097,9 @@ Error message and password prompt
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[Table Macros]]</pre>
+# [[$:/PublicSidebar/main]]
+# [[PublicMenu]]
+# [[$:/macros/buggyj/misc/location.js]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -10104,8 +10114,71 @@ Error message and password prompt
 &lt;/$list&gt;
 </pre>
 </div>
+<div created="20150819171443000" creator="BuggyJ" modified="20150820013825517" module-type="macro" title="$:/macros/buggyj/misc/location.js" type="application/javascript">
+<pre>/*\
+title: $:/macros/buggyj/misc/location.js
+type: application/javascript
+module-type: macro
+
+&lt;&lt;location field&gt;&gt;
+use:
+&lt;&lt;location &quot;show&quot;&gt;&gt; to see the all the fields
+then 
+&lt;&lt;location &quot;href&quot;&gt;&gt; for url
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+
+exports.name = &quot;location&quot;;
+
+exports.params = [
+	{ name: &quot;field&quot; }
+];
+/*
+Run the macro
+*/
+
+exports.run = function(field) {
+if (field === &quot;show&quot;) {
+	alert (JSON.stringify(window.location));
+}else try {
+		return window.location[field].toString();
+	} catch(e){}
+}
+
+
+})();
+</pre>
+</div>
 <div created="20201020150719129" modified="20201020150801223" title="$:/palette">
 <pre>$:/palettes/Vanilla</pre>
+</div>
+<div created="20150819201451646" creator="Kumudan Grubh" modified="20210219222909486" modifier="Kumudan Grubh" tags="$:/tags/PageTemplate" title="$:/PublicSidebar/main">
+<pre>&lt;$set name=&quot;loc&quot; value=&lt;&lt;location 'hostname'&gt;&gt;&gt;
+&lt;$list filter=&quot;[&lt;loc&gt;]+[prefix[cybermails.github.io]]&quot;&gt;
+&lt;style&gt;
+.tc-sidebar-scrollable{visibility:visible;}
+.tc-page-controls {display:none;}
+.tc-sidebar-lists{visibility:hidden;}
+.tc-search{visibility:visible; margin-left:40px;}
+.tc-search-results{visibility:visible;}
+.public {visibility:visible;}
+&lt;/style&gt;
+&lt;/$list&gt;
+&lt;/$set&gt;
+
+&lt;!-- Note:
+You can rename this tiddler freely but keep the $:/tags/PageTemplate tag.
+&quot;visibility:&quot; can be set to (e.g) visible or hidden. Setting something to hidden means it still exists and takes up space but cannot be seen.
+&quot;display:&quot; can be set to (e.g) inline or none. None makes the concerned section &quot;not exist&quot; so sub-sections cannot be manipulated.
+Google e.g &quot;CSS visibility vs display&quot; if you need more details.
+--&gt;
+</pre>
 </div>
 <div created="20201020134109303" creator="Kumudan Grubh" modified="20201106032854415" modifier="Kumudan Grubh" title="$:/SiteSubtitle">
 <pre>Personal website</pre>
@@ -10185,8 +10258,8 @@ Error message and password prompt
 <div created="20201020175827554" modified="20201020175827554" title="$:/state/plugin-info-334910430-$:/core---1812962263">
 <pre>contents</pre>
 </div>
-<div created="20201020151827984" modified="20201022202144447" title="$:/state/showeditpreview">
-<pre>yes</pre>
+<div created="20201020151827984" creator="Kumudan Grubh" modified="20210219222709280" modifier="Kumudan Grubh" title="$:/state/showeditpreview">
+<pre>no</pre>
 </div>
 <div created="20201020150633766" modified="20201021170408672" title="$:/state/sidebar">
 <pre>yes</pre>
@@ -10200,7 +10273,7 @@ Error message and password prompt
 <div created="20201020134238819" modified="20201021171226220" title="$:/state/tab--1963855381">
 <pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
 </div>
-<div created="20201020134159294" creator="Kumudan" modified="20201022223037040" modifier="Kumudan Grubh" title="$:/state/tab--2112689675">
+<div created="20201020134159294" creator="Kumudan" modified="20210219223542472" modifier="Kumudan Grubh" title="$:/state/tab--2112689675">
 <pre>$:/core/ui/ControlPanel/Basics</pre>
 </div>
 <div created="20201020150454673" modified="20201020180547298" title="$:/state/tab--219645345">
@@ -10215,7 +10288,7 @@ Error message and password prompt
 <div created="20201020180526717" modified="20201020180533412" title="$:/state/tab-1163638994">
 <pre>$:/core/ui/MoreSideBar/Plugins/Plugins</pre>
 </div>
-<div created="20201020134207102" creator="Kumudan" modified="20210219204816118" modifier="Kumudan Grubh" title="$:/state/tab-1749438307">
+<div created="20201020134207102" creator="Kumudan" modified="20210219223813758" modifier="Kumudan Grubh" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Saving</pre>
 </div>
 <div created="20201026031900012" creator="Kumudan Grubh" modified="20201026141826168" modifier="Kumudan Grubh" title="$:/state/tab-2065006209">
@@ -10224,8 +10297,8 @@ Error message and password prompt
 <div created="20201020145734151" creator="Kumudan Grubh" modified="20201027142034919" modifier="Kumudan Grubh" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/Shadows</pre>
 </div>
-<div created="20201020145631038" creator="Kumudan Grubh" modified="20201027142843861" modifier="Kumudan Grubh" title="$:/state/tab/sidebar--595412856">
-<pre>Contents</pre>
+<div created="20201020145631038" creator="Kumudan Grubh" modified="20210219223240865" modifier="Kumudan Grubh" title="$:/state/tab/sidebar--595412856">
+<pre>PublicMenu</pre>
 </div>
 <div created="20201020134633929" modified="20201021170953252" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
@@ -10296,11 +10369,14 @@ Error message and password prompt
 <div created="20201022222749469" creator="K" modified="20201022222934927" modifier="Kumudan Grub" title="$:/status/UserName">
 <pre>Kumudan Grubh</pre>
 </div>
-<div created="20210219205504804" creator="Kumudan Grubh" list="$:/ControlPanel Home" modified="20210219205504805" modifier="Kumudan Grubh" title="$:/StoryList">
+<div created="20210219223643880" creator="Kumudan Grubh" list="$:/ControlPanel $:/PublicSidebar/main Home" modified="20210219223759938" modifier="Kumudan Grubh" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20201020175801381" modified="20201022135715842" title="$:/temp/advancedsearch">
-<pre>$:/tags/Macro</pre>
+<div created="20210219215230259" creator="Kumudan Grubh" list="$:/core/ui/SideBar/Open $:/core/ui/SideBar/Recent $:/core/ui/SideBar/Tools $:/core/ui/SideBar/More" modified="20210219222348098" modifier="Kumudan Grubh" title="$:/tags/SideBar">
+<pre></pre>
+</div>
+<div created="20201020175801381" creator="Kumudan Grubh" modified="20210219223655624" modifier="Kumudan Grubh" title="$:/temp/advancedsearch">
+<pre>$:/PublicSidebar/main</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -11561,6 +11637,23 @@ Page is under construction.</pre>
 </div>
 <div created="20201021174539708" creator="Kumudan Grubh" modified="20201107150651481" modifier="Kumudan Grubh" tags="Contents" title="My Notes">
 <pre></pre>
+</div>
+<div created="20150819214803334" modified="20150822031447331" tags="$:/tags/SideBar" title="PublicMenu">
+<pre>&lt;div class=&quot;public&quot;&gt;
+
+So this is a __[[public menu|PublicMenu]]__ that can contain&lt;br&gt;
+and be styled any way you want, including&lt;br&gt;
+the title etc above here, of course.
+
+*[[About PublicSidebar]]
+*PublicMenu (this menu)
+*$:/PublicSidebar/main
+*[[Sidebar CSS overview]]
+*[[Set up your menu tiddler like this]]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;@@margin-left:70px; &lt;$link to=&quot;Bigger community ⇄ Better TW&quot;&gt;[img width=100 [You didn't import this image or the tiddler it leads to|$:/img/fishclick]]&lt;/$link&gt;@@
+
+&lt;/div&gt;</pre>
 </div>
 
 
